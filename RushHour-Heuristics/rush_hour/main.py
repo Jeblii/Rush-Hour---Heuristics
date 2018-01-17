@@ -15,6 +15,7 @@ def create_board(txt):
 
 
 mylist = load_text("4000")
+init_board = create_board(mylist)
 
 print("initial board")
 for i in range(len(init_board.get_board())):
@@ -23,7 +24,6 @@ print("")
 
 #use x algorithm to solve board
 result = breadthfirstsearch(init_board)
-<<<<<<< HEAD
 
 
 
@@ -34,9 +34,3 @@ result = breadthfirstsearch(init_board)
 
 
 
-
-
-
-=======
-#result = randomsearch(init_board)
->>>>>>> 450c13a0eeb6f6ee58d4ebbe7fe2d9bcddc38ed7
