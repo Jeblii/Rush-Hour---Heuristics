@@ -11,7 +11,7 @@ def create_board(txt):
     new_board = board(vehicles)
     return new_board
 
-mylist = load_text("jam_4000")
+mylist = load_text("4000")
 init_board = create_board(mylist)
 
 print("initial board")
@@ -21,15 +21,3 @@ print("")
 
 #use x algorithm to solve board
 result = breadthfirstsearch(init_board)
-
-
-
-
-
-
-
-
-
-
-
-

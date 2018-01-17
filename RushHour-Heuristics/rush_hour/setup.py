@@ -1,6 +1,6 @@
 def load_text(txtfile):
     textlines = []
-    with open('boards/' + txtfile + ".txt") as file:
+    with open('boards/' + "jam_" + txtfile + ".txt") as file:
         for line in file.readlines():
             line = line.strip('\n')
             line = line.split('\t')
@@ -19,5 +19,3 @@ def user_setup():
         return result
     elif game_start == "N":
         print("Goodbye")
-
-
