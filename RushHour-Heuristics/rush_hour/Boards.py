@@ -6,6 +6,7 @@ from operator import attrgetter
 class board(object):
     def __init__(self, vehicles):
         self.vehicles = vehicles
+        self.parent = None
 
     def get_board(self):
         """

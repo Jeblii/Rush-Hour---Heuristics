@@ -14,8 +14,9 @@ def breadthfirstsearch(board, maxDepth=6):
         visited = set()
 
         for individual in range(len(queue)):
-            print("queue length:", len(queue))
-            print("node in queue", individual + 1)
+            print(len(queue))
+            print("depth is", depth + 1)
+            print("checking:", individual ,"/", len(queue) )
             next_board = queue[individual]
             new_gen = next_board.calculate_next_move()
             #print("nr of children" , len(new_gen))
@@ -25,15 +26,23 @@ def breadthfirstsearch(board, maxDepth=6):
                     continue
                 else:
                     if child.vehicles[0].x == 4:
-                        print(child.get_board())
-                        print("depth is", depth + 1)
+                        end_board = child
+                        get_parents(end_board)
+                        #print("depth is", depth + 1)
                         return
                     new_generation.append(child)
-                    #print(child.get_board())
-                    print("")
+                    #print(child.get_board()))
                 visited.add(child)
         queue = new_generation
 
     return visited
+
+def get_parents(winning_state):
+    print(winning_state.get_board(), "\n")
+    parent = winning_state.parent
+    while parent:
+        print(parent.get_board(), "\n")
+        parent = parent.parent
+
 
 
