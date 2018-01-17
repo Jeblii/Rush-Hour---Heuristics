@@ -10,7 +10,7 @@ class board(object):
 
     def get_board(self):
         """
-        draws a 6x6 matrix and fill it with ..
+        draws a matrix and fill it with ..
         goes through all the vehicles and draw it in the matrix
         :return:
         """

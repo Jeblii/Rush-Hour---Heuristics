@@ -1,5 +1,7 @@
 class Vehicle(object):
-    """A configuration of a single vehicle."""
+    """A configuration of a single vehicle.
+        This class is designed to work with the 6x6 boards
+    """
 
     def __init__(self, id, x, y, orientation):
         """Create a new vehicle.
@@ -31,4 +33,3 @@ class Vehicle(object):
             self.orientation = orientation
             x_end = self.x
             y_end = self.y + (self.length - 1)
-

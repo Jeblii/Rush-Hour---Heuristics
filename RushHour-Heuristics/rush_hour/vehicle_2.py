@@ -1,5 +1,7 @@
 class Vehicle_2(object):
-    """A configuration of a single vehicle."""
+    """A configuration of a single vehicle
+        This class is specifically designed to work with the 9x9 and 12X12 boards
+    ."""
 
     def __init__(self, id, x, y, orientation):
         """Create a new vehicle.
