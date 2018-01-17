@@ -1,18 +1,31 @@
 from copy import deepcopy
-import numpy as np
-def breadthfirstsearch(board, maxDepth=6):
+import random
+
+def randomsearch(board):
+    new_board = board
+    i=1
+    counter=0
+    while i == 1:
+        new_board = random.choice(new_board.calculate_next_move())
+        if new_board.vehicles[0].x == 4:
+            #get_parents(child)
+            # print("depth is", depth + 1)
+            print('win')
+            print(counter)
+            break
+        counter += 1
+
+
+
+def astarsearch(board, maxDepth=6):
     """
-    An implementation of breadth first search; checks states on the order FIFO
-    function terminates, when solution is found or max depth is reached
-    :param board: call function with a boardstate
-    :param maxDepth: max depth of the tree till search terminates
-    :return:
+    
     """
+
+
+    board = random.choice(board.calculate_next_move())
     queue = [board]
     visited = []
-    visit = dict()
-    visit_count = 0
-
     for depth in range(0, maxDepth):
         new_generation = []
         visited = set()
@@ -22,22 +35,7 @@ def breadthfirstsearch(board, maxDepth=6):
             print("depth is", depth + 1)
             print("checking:", individual ,"/", len(queue) )
             next_board = queue[individual]
-
-            visit_count += 1                                                #number of visited states
-            visit[visit_count] = queue[individual].get_board()              #create key in visit dictionary
-
             new_gen = next_board.calculate_next_move()
-
-
-            ng = []                                             #save the states of new_gen that are already in visit dictionary
-            for i in new_gen:
-                for o in visit.values():
-                    if np.array_equal(i.get_board(), o) == True:
-                        ng.append(i)
-
-            for i in ng:                                        #remove the visited states from new_gen
-                if i in new_gen:
-                    new_gen.remove(i)
             #print("nr of children" , len(new_gen))
 
             for child in new_gen:
@@ -61,3 +59,6 @@ def get_parents(winning_state):
     while parent:
         print(parent.get_board(), "\n")
         parent = parent.parent
+
+
+
