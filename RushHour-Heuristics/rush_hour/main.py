@@ -1,4 +1,5 @@
 from vehicle import Vehicle
+from vehicle_2 import Vehicle_2
 from Boards import board
 from Algorithms.BreadthFirstSearch import breadthfirstsearch
 from Algorithms.Random import randomsearch
