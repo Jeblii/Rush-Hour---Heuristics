@@ -26,8 +26,7 @@ def breadthfirstsearch(board, maxDepth=6):
                     continue
                 else:
                     if child.vehicles[0].x == 4:
-                        end_board = child
-                        get_parents(end_board)
+                        get_parents(child)
                         #print("depth is", depth + 1)
                         return
                     new_generation.append(child)
