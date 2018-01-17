@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a49d080b-1dcf-4c44-9ed2-5cc2c70f7ce5" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/AStar.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/Random.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/Jam_69.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/Jam_70.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/Jam_72.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/Jam_73.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/Jam_74.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/Jam_75.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/Jam_76.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/boards/jam_71.txt" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/BreadthFirstSearch.py" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/BreadthFirstSearch.py" />
       <change beforePath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/main.py" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/main.py" />
+      <change beforePath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/setup.py" afterPath="$PROJECT_DIR$/RushHour-Heuristics/rush_hour/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BreadthFirstSearch.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BreadthFirstSearch.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/BreadthFirstSearch.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="25" lean-forward="true" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+              <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -55,18 +63,20 @@
         <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/setup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="272">
+              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/exploredBfs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -396,9 +406,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22913617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22913617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -507,23 +516,7 @@
     <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/exploredBfs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/BreadthFirstSearch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="true" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/AStar.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -531,8 +524,18 @@
     <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -554,6 +557,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/AStar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/Random.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -564,10 +575,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/main.py">
+    <entry file="file://$PROJECT_DIR$/RushHour-Heuristics/rush_hour/Algorithms/BreadthFirstSearch.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
           <folding />
         </state>
       </provider>

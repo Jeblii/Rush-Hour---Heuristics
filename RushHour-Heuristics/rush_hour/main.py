@@ -13,8 +13,8 @@ def create_board(txt):
     new_board = board(vehicles)
     return new_board
 
-mylist = load_text("jam_02")
-init_board = create_board(mylist)
+
+mylist = load_text("4000")
 
 print("initial board")
 for i in range(len(init_board.get_board())):
@@ -24,15 +24,3 @@ print("")
 #use x algorithm to solve board
 result = breadthfirstsearch(init_board)
 #result = randomsearch(init_board)
-
-
-
-
-
-
-
-
-
-
-
-
