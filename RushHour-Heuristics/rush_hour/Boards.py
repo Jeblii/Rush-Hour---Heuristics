@@ -24,10 +24,12 @@ class board(object):
                 for i in range(vehicle.length):
                     board[y][x + i] = vehicle.id
                     if vehicle.length == 2:
-                        board[y][x + i] += " "
+                        board[y][x + i] += "."
             else:
                 for i in range(vehicle.length):
                     board[y + i][x] = vehicle.id
+                    if vehicle.length == 2:
+                        board[y + i][x] += "."
         return board
 
 
@@ -77,5 +79,3 @@ class board(object):
                         new_board.parent = self
                         new_boards.append(new_board)
         return new_boards
-
-
