@@ -1,6 +1,8 @@
 from vehicle import Vehicle
 from Boards import board
 from Algorithms.BreadthFirstSearch import breadthfirstsearch
+from Algorithms.Random import randomsearch
+
 from setup import *
 
 def create_board(txt):
@@ -11,7 +13,7 @@ def create_board(txt):
     new_board = board(vehicles)
     return new_board
 
-mylist = load_text("jam_4000")
+mylist = load_text("jam_02")
 init_board = create_board(mylist)
 
 print("initial board")
@@ -21,6 +23,7 @@ print("")
 
 #use x algorithm to solve board
 result = breadthfirstsearch(init_board)
+#result = randomsearch(init_board)
 
 
 
