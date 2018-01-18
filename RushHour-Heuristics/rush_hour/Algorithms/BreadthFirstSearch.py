@@ -49,8 +49,13 @@ def breadthfirstsearch(board, maxDepth=100):
     return visited
 
 def get_parents(winning_state):
-    print(winning_state.get_board(), "\n")
+    solution_steps = []
     parent = winning_state.parent
     while parent:
-        print(parent.get_board(), "\n")
+        solution_steps.append(parent.get_board())
         parent = parent.parent
+
+    for i in reversed(solution_steps):
+        print(i, "\n")
+
+    print(winning_state.get_board())
