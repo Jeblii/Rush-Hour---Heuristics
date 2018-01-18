@@ -1,7 +1,7 @@
-class Vehicle(object):
-    """A configuration of a single vehicle.
-        This class is designed to work with the 6x6 boards
-    """
+class Vehicle_2(object):
+    """A configuration of a single vehicle
+        This class is specifically designed to work with the 9x9 and 12X12 boards
+    ."""
 
     def __init__(self, id, x, y, orientation):
         """Create a new vehicle.
@@ -15,11 +15,11 @@ class Vehicle(object):
             ValueError: on invalid id, x, y, or orientation
         """
         self.id = id
-        if self.id < 12:
+        if self.id == 0:
             self.length = 2
-        elif id > 11:
+        elif id > 29:
             self.length = 3
-        elif id == 0:
+        elif id < 30:
             self.length = 2
 
         self.x = x
