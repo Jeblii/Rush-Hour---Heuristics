@@ -16,7 +16,8 @@ def create_board(txt, size):
             x = Vehicle_2(int(mylist[count][0]), int(mylist[count][1]), int(mylist[count][2]), int(mylist[count][3]))
             vehicles.append(x)
         else:
-            x = Vehicle(int(mylist[count][0]), int(mylist[count][1]), int(mylist[count][2]), int(mylist[count][3]))
+            x = Vehicle(int(mylist[count][0]), int(mylist[count][1]),
+                        int(mylist[count][2]), int(mylist[count][3]))
             vehicles.append(x)
     new_board = board(vehicles)
     return new_board
