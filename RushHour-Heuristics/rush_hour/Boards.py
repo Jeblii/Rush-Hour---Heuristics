@@ -44,38 +44,30 @@ class board(object):
             if vehicle.orientation == 0: #horizontal
                 if vehicle.x > 0: #left
                     if state[vehicle.y][vehicle.x-1] == "..":
-                        child_v = deepcopy(vehicle)
-                        child_v.x -= 1
                         new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id] = child_v
+                        new_board.vehicles[vehicle_id].x -= 1
                         new_board.parent = self
                         new_boards.append(new_board)
 
-                if vehicle.x <= (len(state)-1) - vehicle.length: #right
+                if vehicle.x + vehicle.length <= (len(state)-1): #right
                     if state[vehicle.y][vehicle.x+vehicle.length] == "..":
-                        child_v = deepcopy(vehicle)
-                        child_v.x += 1
                         new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id] = child_v
+                        new_board.vehicles[vehicle_id].x += 1
                         new_board.parent = self
                         new_boards.append(new_board)
 
             else:    #vertical
-                if vehicle.y - 1  >= 0: #up
+                if vehicle.y - 1 >= 0: #up
                     if state[vehicle.y-1][vehicle.x] == "..":
-                        child_v = deepcopy(vehicle)
-                        child_v.y -= 1
                         new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id] = child_v
+                        new_board.vehicles[vehicle_id].y -= 1
                         new_board.parent = self
                         new_boards.append(new_board)
 
-                if vehicle.y +vehicle.length <= (len(state)-1):
+                if vehicle.y + vehicle.length <= (len(state)-1):
                     if state[vehicle.y + vehicle.length][vehicle.x] == "..":#down
-                        child_v = deepcopy(vehicle)
-                        child_v.y += 1
                         new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id] = child_v
+                        new_board.vehicles[vehicle_id].y += 1
                         new_board.parent = self
                         new_boards.append(new_board)
         return new_boards
