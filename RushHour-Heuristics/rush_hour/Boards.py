@@ -44,6 +44,7 @@ class board(object):
             if vehicle.orientation == 0: #horizontal
                 if vehicle.x > 0: #left
                     if state[vehicle.y][vehicle.x-1] == "..":
+                        # if not get_board(self.vehicles[vehicle_id].x -= 1) in dict ???
                         new_board = deepcopy(self)
                         new_board.vehicles[vehicle_id].x -= 1
                         new_board.parent = self
