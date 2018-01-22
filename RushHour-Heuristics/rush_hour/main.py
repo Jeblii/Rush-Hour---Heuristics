@@ -3,6 +3,7 @@ from vehicle_2 import Vehicle_2
 from Boards import board
 from Algorithms.BreadthFirstSearch import breadthfirstsearch
 from Algorithms.AStar import Astar
+from Algorithms.Heuristics import *
 from Algorithms.Random import randomsearch
 from setup import *
 import time
