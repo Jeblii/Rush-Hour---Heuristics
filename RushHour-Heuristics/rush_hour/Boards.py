@@ -34,7 +34,7 @@ class board(object):
         return board
 
 
-    def calculate_next_move(self):
+    def calculate_next_move(self, visit):
         """
         calculates a next move
         """
@@ -45,31 +45,46 @@ class board(object):
             if vehicle.orientation == 0: #horizontal
                 if vehicle.x > 0: #left
                     if state[vehicle.y][vehicle.x-1] == "..":
-                        # if not get_board(self.vehicles[vehicle_id].x -= 1) in dict ???
-                        new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id].x -= 1
-                        new_board.parent = self
-                        new_boards.append(new_board)
+                        self.vehicles[vehicle_id].x -=1
+                        if not self.get_board().tostring() in visit:
+                            new_board = deepcopy(self)
+                            self.vehicles[vehicle_id].x += 1
+                            new_board.parent = self
+                            new_boards.append(new_board)
+                        else:
+                            self.vehicles[vehicle_id].x += 1
 
                 if vehicle.x + vehicle.length <= (len(state)-1): #right
                     if state[vehicle.y][vehicle.x+vehicle.length] == "..":
-                        new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id].x += 1
-                        new_board.parent = self
-                        new_boards.append(new_board)
+                        self.vehicles[vehicle_id].x += 1
+                        if not self.get_board().tostring() in visit:
+                            new_board = deepcopy(self)
+                            self.vehicles[vehicle_id].x -= 1
+                            new_board.parent = self
+                            new_boards.append(new_board)
+                        else:
+                            self.vehicles[vehicle_id].x -= 1
 
             else:    #vertical
                 if vehicle.y - 1 >= 0: #up
                     if state[vehicle.y-1][vehicle.x] == "..":
-                        new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id].y -= 1
-                        new_board.parent = self
-                        new_boards.append(new_board)
+                        self.vehicles[vehicle_id].y -= 1
+                        if not self.get_board().tostring() in visit:
+                            new_board = deepcopy(self)
+                            self.vehicles[vehicle_id].y += 1
+                            new_board.parent = self
+                            new_boards.append(new_board)
+                        else:
+                            self.vehicles[vehicle_id].y += 1
 
                 if vehicle.y + vehicle.length <= (len(state)-1):
                     if state[vehicle.y + vehicle.length][vehicle.x] == "..":#down
-                        new_board = deepcopy(self)
-                        new_board.vehicles[vehicle_id].y += 1
-                        new_board.parent = self
-                        new_boards.append(new_board)
+                        self.vehicles[vehicle_id].y += 1
+                        if not self.get_board().tostring() in visit:
+                            new_board = deepcopy(self)
+                            self.vehicles[vehicle_id].y -= 1
+                            new_board.parent = self
+                            new_boards.append(new_board)
+                        else:
+                            self.vehicles[vehicle_id].y -= 1
         return new_boards

@@ -29,7 +29,7 @@ def breadthfirstsearch(board, maxDepth=100):
             #print("checking:", individual ,"/", len(queue),"\n")
 
             next_board = queue[individual]
-            new_gen = next_board.calculate_next_move()
+            new_gen = next_board.calculate_next_move(visit)
 
 
             for child in new_gen:
