@@ -1,7 +1,7 @@
 def load_text(txtfile):
     """
     This function reads the textfile to generate the four attributes of each
-    vehicle 
+    vehicle
     """
     textlines = []
     with open('boards/' + "jam_" + txtfile + ".txt") as file:
@@ -9,7 +9,7 @@ def load_text(txtfile):
             line = line.strip('\n')
             line = line.split('\t')
             textlines.append(line)
-    return textlines
+    return textlines 
 
 def user_setup():
     """

@@ -18,19 +18,12 @@ def breadthfirstsearch(board, maxDepth=100):
 
     for depth in range(0, maxDepth):
         new_generation = []
-
+        print("depth is", depth + 1)
         for individual in range(len(queue)):
-            print("depth is", depth + 1)
+            #print("depth is", depth + 1)
             #print("checking node:", individual ,"/", len(queue),"\n")
             next_board = queue[individual]
-
-            #visit_count += 1                                                #number of visited states in the breadthfirstsearch
-            #visit[visit_count] = queue[individual].get_board()              #create key for a visited state in visit dictionary
-            #print("checking:", individual ,"/", len(queue),"\n")
-
-            next_board = queue[individual]
             new_gen = next_board.calculate_next_move(visit)
-
 
             for child in new_gen:
                 new_key = child.get_board()
@@ -39,21 +32,17 @@ def breadthfirstsearch(board, maxDepth=100):
                 else:
                     visit[new_key.tostring()] = 1
                     new_generation.append(child)
-                    #print(child.get_board(), "\n")
+                    #print(child.get_board(), "\n")                         #<- uncomment to print the children of visited states
                     if child.vehicles[0].x == dimension - 2: #if solution is found
 
-                        visit[len(visit)+1] = child.get_board()                 #add last visited state to visit dictionary
-
-
                         # for i in visit.keys():                            #prints all the visited states in breatdhfirst search
-                        #     print(i)                                        #<- uncomment this section if you want to seethe visited states in the breadthfirstsearch
+                        #      print(i)                                     #<- uncomment this section if you want to seethe visited states in the breadthfirstsearch
 
                         get_parents(child)
                         print("Total visited nodes:", len(visit))
-
                         return
         queue = new_generation
-    return visit
+    # return visit
 
 def get_parents(winning_state):
     solution_steps = []
