@@ -8,6 +8,7 @@ class board(object):
         self.vehicles = vehicles
         self.parent = None
 
+
     def get_board(self):
         """
         draws a matrix and fill it with ..

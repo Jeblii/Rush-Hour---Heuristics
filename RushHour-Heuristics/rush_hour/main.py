@@ -4,6 +4,9 @@ from Boards import board
 from Algorithms.BreadthFirstSearch import breadthfirstsearch
 from Algorithms.Random import randomsearch
 from setup import *
+import time
+from time import sleep
+from datetime import datetime
 
 def create_board(txt, size):
     """
@@ -22,7 +25,7 @@ def create_board(txt, size):
     new_board = board(vehicles)
     return new_board
 
-mylist = load_text("4000") #runs the setup file
+mylist = load_text("72") #runs the setup file
 size = len(mylist) #reads the number of lines of mylist
 init_board = create_board(mylist, size) #puts all the vehicles into a generated board
 
@@ -32,4 +35,9 @@ for i in range(len(init_board.get_board())):
 print("")
 
 #use x algorithm to solve board
+start_time = datetime.now()
 result = breadthfirstsearch(init_board) #calls on the breadthfirstsearch algorithm
+
+stop_time = datetime.now()
+elapsed_time = stop_time - start_time
+print('Elapsed Time:', elapsed_time)
