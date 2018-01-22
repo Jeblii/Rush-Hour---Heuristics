@@ -2,21 +2,11 @@ from copy import deepcopy
 import numpy as np
 from operator import attrgetter
 import queue as Q
+from Heuristics import *
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
-    grid = board.get_board()
-    for i in range(len(grid)):
-        if '0.' in grid[i]:
-            mergedlist=[]
-            for k in range(len(grid[i])):
-                mergedlist.append(grid[i - 1][k])
-                mergedlist.append(grid[i][k])
-                mergedlist.append(grid[i + 1][k])
-            merged_set = set(mergedlist)
-            if '..' in merged_set:  # weet niet of deze syntax klopt
-                merged_set.remove('..')
-            return len(merged_set) - 1
+    return BlockingHeuristic(board)
 
 
 def Astar(board, maxDepth=10000):
