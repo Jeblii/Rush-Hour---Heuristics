@@ -2,6 +2,7 @@ from copy import deepcopy
 import numpy as np
 from operator import attrgetter
 import queue as Q
+
 def RightCarsHeuristic(board): #works
     "calculate number of cars between 00 and the exit"
     blocking_cars = 0
@@ -46,7 +47,7 @@ def ThreeLanesHeuristic(board): #works
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
-    return RightCarsHeuristic(board)
+    #return RightCarsHeuristic(board)
     #return BlockingHeuristic(board)
     #return DistanceHeuristic(board)
     #return ThreeLanesHeuristic(board)
