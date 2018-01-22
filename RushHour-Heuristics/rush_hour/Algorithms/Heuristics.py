@@ -14,7 +14,7 @@ def DistanceHeuristic(board):#works
     for i in grid:
         if '0.' in i:
             while not i[0] == 0:
-                i.pop(0)
+                np.delete(i, 0)
             return len(i)-2
 
 def BlockingHeuristic(board):  #works
@@ -23,6 +23,7 @@ def BlockingHeuristic(board):  #works
         if '0.' in i:
             while not i[0] == 0:
                 i.pop(0)
+            print(i)
             set_i = set(i)
             if '..' in set_i:
                 set_i.remove('..')

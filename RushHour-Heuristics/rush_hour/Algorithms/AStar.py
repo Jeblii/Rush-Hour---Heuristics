@@ -16,7 +16,7 @@ def DistanceHeuristic(board):#works
     for i in grid:
         if '0.' in i:
             while not i[0] == 0:
-                i.pop(0)
+                np.delete(i, 0)
             return len(i)-2
 
 def BlockingHeuristic(board):  #works
@@ -24,7 +24,7 @@ def BlockingHeuristic(board):  #works
     for i in grid:
         if '0.' in i:
             while not i[0] == 0:
-                i.pop(0)
+                np.delete(i, 0)
             set_i = set(i)
             if '..' in set_i:
                 set_i.remove('..')
@@ -47,10 +47,11 @@ def ThreeLanesHeuristic(board): #works
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
-    #return RightCarsHeuristic(board)
-    #return BlockingHeuristic(board)
+    return RightCarsHeuristic(board)
     #return DistanceHeuristic(board)
+    #return BlockingHeuristic(board)
     #return ThreeLanesHeuristic(board)
+
 
 
 def Astar(board, maxDepth=10000):
