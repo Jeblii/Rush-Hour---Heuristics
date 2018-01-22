@@ -1,5 +1,13 @@
 #alles kan iets geoptimized worden als we weten in welke rijen de rode auto staat voor elk board en die index vervolgens gebruiken
 
+def get_heuristic(board):
+    "calculate number of cars between 00 and the exit"
+    blocking_cars = 0
+    for v in board.vehicles:
+        if v.x > board.vehicles[0].x:
+            blocking_cars += 1
+    return blocking_cars
+
 
 def DistanceHeuristic(board):
     grid = board.get_board()

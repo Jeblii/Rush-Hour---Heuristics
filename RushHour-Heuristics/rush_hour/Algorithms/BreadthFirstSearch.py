@@ -18,7 +18,7 @@ def breadthfirstsearch(board, maxDepth=100):
 
     for depth in range(0, maxDepth):
         new_generation = []
-        print("depth is", depth + 1)
+        #print("depth is", depth + 1)
         for individual in range(len(queue)):
             #print("depth is", depth + 1)
             #print("checking node:", individual ,"/", len(queue),"\n")
