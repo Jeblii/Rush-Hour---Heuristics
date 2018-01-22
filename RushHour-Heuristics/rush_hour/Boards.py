@@ -7,6 +7,7 @@ class board(object):
     def __init__(self, vehicles):
         self.vehicles = vehicles
         self.parent = None
+        self.depth = 0
 
 
     def get_board(self):
@@ -18,7 +19,6 @@ class board(object):
         dimension = max(self.vehicles, key = attrgetter('x')).x + 1
 
         board = np.full((dimension,dimension), '..')
-
         for vehicle in self.vehicles:
             x, y = vehicle.x, vehicle.y
             if vehicle.orientation == 0:
@@ -38,6 +38,7 @@ class board(object):
         """
         calculates a next move
         """
+        self.depth += 1
         new_boards = []
         for vehicle_id in range(len(self.vehicles)):
             vehicle = self.vehicles[vehicle_id]
@@ -91,4 +92,5 @@ class board(object):
                                 new_boards.append(new_board)
                         else:
                             self.vehicles[vehicle_id].y -= 1
+        self.depth -= 1
         return new_boards

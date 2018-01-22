@@ -13,11 +13,8 @@ def RightCarsHeuristic(board): #works
 
 def DistanceHeuristic(board):#works
     grid = board.get_board()
-    for i in grid:
-        if '0.' in i:
-            while not i[0] == 0:
-                np.delete(i, 0)
-            return len(i)-2
+    distance = len(grid) - board.vehicles[0].x - 1
+    return distance + board.depth
 
 def BlockingHeuristic(board):  #works
     grid = board.get_board()
@@ -44,13 +41,22 @@ def ThreeLanesHeuristic(board): #works
                 merged_set.remove('..')
             return len(merged_set) - 1
 
+def EdgeHeuristic(board):
+    grid = board.get_board()
+    #merged_set = set(grid[0] + grid[:1])
+    merged_list=[]
+    for i in range(len(grid[0])):
+        merged_list.append(grid[0][i])
+        merged_list.append(grid[-1][i])
+    return len(set(merged_list))+board.depth
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
-    return RightCarsHeuristic(board)
-    #return DistanceHeuristic(board)
+    #return RightCarsHeuristic(board)
+    return DistanceHeuristic(board)
     #return BlockingHeuristic(board)
     #return ThreeLanesHeuristic(board)
+    #return EdgeHeuristic(board)
 
 
 
@@ -92,8 +98,7 @@ def Astar(board, maxDepth=10000):
                 continue
             else:
                 h = get_heuristic(child)
-                depth = 0
-                f = h + (depth + 1)
+                f = h
 
                 visit[new_key.tostring()] = 1
                 new_generation.append((f, child))
