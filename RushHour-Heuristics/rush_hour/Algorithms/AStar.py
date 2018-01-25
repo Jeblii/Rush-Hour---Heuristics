@@ -1,6 +1,7 @@
 from copy import deepcopy
 import numpy as np
 from operator import attrgetter
+from random import shuffle
 
 def RightCarsHeuristic(board): #works
     "calculate number of cars between 00 and the exit"
@@ -62,13 +63,26 @@ def EdgeHeuristic(board): #works
 
 def ReverseHeuristic(board):
     grid = board.get_board()
-    if board.vehicles[0].x < len(grid)/2:
-        return RightCarsHeuristic(board)
+    if board.vehicles[0].x == len(grid)-2:
+        val1 = RightCarsHeuristic(board)
+        val2 = LeftCarsHeuristic(board)
+        val_list= [val1, val1, val1, val1, val2]
+        shuffle(val_list)
+        print(val_list[0])
+        return val_list[0]
     else:
-        if board.vehicles[0].x < len(grid)-1:
-            return DistanceHeuristic(board)
-        else:
-            return LeftCarsHeuristic(board)
+        return RightCarsHeuristic(board)
+
+
+
+
+    # if board.vehicles[0].x < len(grid)/2:
+    #     return RightCarsHeuristic(board)
+    # else:
+    #     if board.vehicles[0].x == len(grid)-2:
+    #         return LeftCarsHeuristic(board)
+    #     else:
+    #         return LeftCarsHeuristic(board)
 
 
 
