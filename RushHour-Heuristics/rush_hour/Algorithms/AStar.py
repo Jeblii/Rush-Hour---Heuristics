@@ -47,7 +47,11 @@ def EdgeHeuristic(board): #works
     for i in range(len(grid[0])):
         merged_list.append(grid[0][i])
         merged_list.append(grid[-1][i])
-    return len(set(merged_list))+board.depth
+    counter = 0
+    for i in board.vehicles:
+        if i.x == 0:
+            counter += 1
+    return len(set(merged_list))+counter
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
