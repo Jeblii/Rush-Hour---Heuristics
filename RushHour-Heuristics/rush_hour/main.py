@@ -28,7 +28,7 @@ def create_board(txt, size):
     return new_board
 
 
-mylist = load_text("72") #runs the setup file
+mylist = load_text("70") #runs the setup file
 size = len(mylist) #reads the number of lines of mylist
 init_board = create_board(mylist, size) #puts all the vehicles into a generated board
 

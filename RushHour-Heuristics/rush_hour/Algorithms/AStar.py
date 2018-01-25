@@ -52,7 +52,8 @@ def EdgeHeuristic(board):
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
-    return RightCarsHeuristic(board)
+    return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
+    #return RightCarsHeuristic(board)
     #return DistanceHeuristic(board)
     #return BlockingHeuristic(board)
     #return ThreeLanesHeuristic(board)
