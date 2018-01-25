@@ -97,7 +97,7 @@ class board(object):
         self.depth -= 1
         return new_boards
 
-    def calculate_random_move(self, vehicleamount):
+    def calculate_random_move(self, vehicleamount, visit):
         """
         calculates a next move
         """
@@ -113,21 +113,33 @@ class board(object):
                     if vehicle.x > 0: #left
                         if state[vehicle.y][vehicle.x-1] == "..":
                             self.vehicles[vehicle_id].x -=1
-                            return self
+                            if self.get_board().tostring() in visit:
+                                self.vehicles[vehicle_id].x += 1
+                            else:
+                                return self
                 else:
                     if vehicle.x + vehicle.length <= (len(state)-1): #right
                         if state[vehicle.y][vehicle.x+vehicle.length] == "..":
                             self.vehicles[vehicle_id].x += 1
-                            return self
+                            if self.get_board().tostring() in visit:
+                                self.vehicles[vehicle_id].x -= 1
+                            else:
+                                return self
             else:    #vertical
                 if number == 0:
                     if vehicle.y - 1 >= 0: #up
                         if state[vehicle.y-1][vehicle.x] == "..":
                             self.vehicles[vehicle_id].y -= 1
-                            return self
+                            if self.get_board().tostring() in visit:
+                                self.vehicles[vehicle_id].y += 1
+                            else:
+                                return self
                 else:
                     if vehicle.y + vehicle.length <= (len(state)-1):
                         if state[vehicle.y + vehicle.length][vehicle.x] == "..":#down
                             self.vehicles[vehicle_id].y += 1
-                            return self
+                            if self.get_board().tostring() in visit:
+                                self.vehicles[vehicle_id].y -= 1
+                            else:
+                                return self
 
