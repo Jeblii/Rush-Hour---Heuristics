@@ -1,7 +1,6 @@
 from copy import deepcopy
 import numpy as np
 from operator import attrgetter
-import queue as Q
 
 def RightCarsHeuristic(board): #works
     "calculate number of cars between 00 and the exit"
@@ -11,10 +10,18 @@ def RightCarsHeuristic(board): #works
             blocking_cars += 1
     return blocking_cars
 
+def LeftCarsHeuristic(board): #works
+    "calculate number of cars between 00 and the exit"
+    blocking_cars = 0
+    for v in board.vehicles:
+        if v.x <= board.vehicles[0].x:
+            blocking_cars += 1
+    return blocking_cars
+
 def DistanceHeuristic(board):#works
     grid = board.get_board()
     distance = len(grid) - board.vehicles[0].x - 1
-    return distance + board.depth
+    return distance
 
 def BlockingHeuristic(board):  #works
     grid = board.get_board()
@@ -53,14 +60,27 @@ def EdgeHeuristic(board): #works
             counter += 1
     return len(set(merged_list))+counter
 
+def ReverseHeuristic(board):
+    grid = board.get_board()
+    if board.vehicles[0].x < len(grid)/2:
+        return RightCarsHeuristic(board)
+    else:
+        if board.vehicles[0].x < len(grid)-1:
+            return DistanceHeuristic(board)
+        else:
+            return LeftCarsHeuristic(board)
+
+
+
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
     #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
     #return RightCarsHeuristic(board)
     #return DistanceHeuristic(board)
     #return BlockingHeuristic(board)
-    return ThreeLanesHeuristic(board)
+    #return ThreeLanesHeuristic(board)
     #return EdgeHeuristic(board)
+    return ReverseHeuristic(board)
 
 
 
@@ -106,7 +126,7 @@ def Astar(board, maxDepth=10000):
 
                 visit[new_key.tostring()] = 1
                 new_generation.append((f, child))
-                #print(child.get_board(), "\n")
+                print(child.get_board(), "\n")
                 if child.vehicles[0].x == dimension - 2: #if solution is found
 
                     visit[len(visit)+1] = child.get_board()                 #add last visited state to visit dictionary
