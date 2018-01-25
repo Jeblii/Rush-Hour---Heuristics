@@ -28,7 +28,7 @@ def create_board(txt, size):
     return new_board
 
 
-mylist = load_text("72") #runs the setup file
+mylist = load_text("76") #runs the setup file
 size = len(mylist) #reads the number of lines of mylist
 init_board = create_board(mylist, size) #puts all the vehicles into a generated board
 
@@ -46,7 +46,7 @@ init_board = create_board(mylist, size) #puts all the vehicles into a generated 
 # print('Elapsed Time:', elapsed_time)
 
 start_time = datetime.now()
-result = Astar(init_board) #calls on the breadthfirstsearch algorithm
+result = randomsearch(init_board) #calls on the breadthfirstsearch algorithm
 stop_time = datetime.now()
 elapsed_time = stop_time - start_time
 print('Elapsed Time:', elapsed_time)

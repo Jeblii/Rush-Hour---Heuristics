@@ -1,7 +1,7 @@
 from copy import deepcopy
 import numpy as np
 from operator import attrgetter
-import queue as Q
+from random import shuffle
 
 def RightCarsHeuristic(board): #works
     "calculate number of cars between 00 and the exit"
@@ -11,10 +11,18 @@ def RightCarsHeuristic(board): #works
             blocking_cars += 1
     return blocking_cars
 
+def LeftCarsHeuristic(board): #works
+    "calculate number of cars between 00 and the left side"
+    blocking_cars = 0
+    for v in board.vehicles:
+        if v.x <= board.vehicles[0].x:
+            blocking_cars += 1
+    return blocking_cars
+
 def DistanceHeuristic(board):#works
     grid = board.get_board()
     distance = len(grid) - board.vehicles[0].x - 1
-    return distance + board.depth
+    return distance
 
 def BlockingHeuristic(board):  #works
     grid = board.get_board()
@@ -41,22 +49,51 @@ def ThreeLanesHeuristic(board): #works
                 merged_set.remove('..')
             return len(merged_set) - 1
 
-def EdgeHeuristic(board):
+def EdgeHeuristic(board): #works
     grid = board.get_board()
-    #merged_set = set(grid[0] + grid[:1])
-    merged_list=[]
+    merged_list = []
     for i in range(len(grid[0])):
         merged_list.append(grid[0][i])
         merged_list.append(grid[-1][i])
-    return len(set(merged_list))+board.depth
+    counter = 0
+    for i in board.vehicles:
+        if i.x == 0:
+            counter += 1
+    return len(set(merged_list))+counter
+
+def ReverseHeuristic(board):
+    grid = board.get_board()
+    if board.vehicles[0].x + 1 > len(grid)/2:
+        val1 = RightCarsHeuristic(board)
+        val2 = LeftCarsHeuristic(board)
+        val_list = [val1, val1, val2]
+        shuffle(val_list)
+        return val_list[0]
+    else:
+        return RightCarsHeuristic(board)
+
+
+
+
+    # if board.vehicles[0].x < len(grid)/2:
+    #     return RightCarsHeuristic(board)
+    # else:
+    #     if board.vehicles[0].x == len(grid)-2:
+    #         return LeftCarsHeuristic(board)
+    #     else:
+    #         return LeftCarsHeuristic(board)
+
+
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
-    return RightCarsHeuristic(board)
+    #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
+    #return RightCarsHeuristic(board)+board.depth
     #return DistanceHeuristic(board)
     #return BlockingHeuristic(board)
     #return ThreeLanesHeuristic(board)
     #return EdgeHeuristic(board)
+    return ReverseHeuristic(board)
 
 
 
