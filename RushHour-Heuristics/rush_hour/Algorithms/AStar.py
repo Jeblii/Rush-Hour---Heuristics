@@ -12,7 +12,7 @@ def RightCarsHeuristic(board): #works
     return blocking_cars
 
 def LeftCarsHeuristic(board): #works
-    "calculate number of cars between 00 and the exit"
+    "calculate number of cars between 00 and the left side"
     blocking_cars = 0
     for v in board.vehicles:
         if v.x <= board.vehicles[0].x:
@@ -63,12 +63,11 @@ def EdgeHeuristic(board): #works
 
 def ReverseHeuristic(board):
     grid = board.get_board()
-    if board.vehicles[0].x == len(grid)-2:
+    if board.vehicles[0].x + 1 > len(grid)/2:
         val1 = RightCarsHeuristic(board)
         val2 = LeftCarsHeuristic(board)
-        val_list= [val1, val1, val1, val1, val2]
+        val_list = [val1, val1, val2]
         shuffle(val_list)
-        print(val_list[0])
         return val_list[0]
     else:
         return RightCarsHeuristic(board)
@@ -89,7 +88,7 @@ def ReverseHeuristic(board):
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
     #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
-    #return RightCarsHeuristic(board)
+    #return RightCarsHeuristic(board)+board.depth
     #return DistanceHeuristic(board)
     #return BlockingHeuristic(board)
     #return ThreeLanesHeuristic(board)
@@ -140,7 +139,7 @@ def Astar(board, maxDepth=10000):
 
                 visit[new_key.tostring()] = 1
                 new_generation.append((f, child))
-                print(child.get_board(), "\n")
+                #print(child.get_board(), "\n")
                 if child.vehicles[0].x == dimension - 2: #if solution is found
 
                     visit[len(visit)+1] = child.get_board()                 #add last visited state to visit dictionary
