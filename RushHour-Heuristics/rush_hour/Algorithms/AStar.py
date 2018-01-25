@@ -41,10 +41,9 @@ def ThreeLanesHeuristic(board): #works
                 merged_set.remove('..')
             return len(merged_set) - 1
 
-def EdgeHeuristic(board):
+def EdgeHeuristic(board): #works
     grid = board.get_board()
-    #merged_set = set(grid[0] + grid[:1])
-    merged_list=[]
+    merged_list = []
     for i in range(len(grid[0])):
         merged_list.append(grid[0][i])
         merged_list.append(grid[-1][i])
@@ -52,11 +51,11 @@ def EdgeHeuristic(board):
 
 def get_heuristic(board):
     "calculate number of cars between 00 and the exit"
-    return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
+    #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
     #return RightCarsHeuristic(board)
     #return DistanceHeuristic(board)
     #return BlockingHeuristic(board)
-    #return ThreeLanesHeuristic(board)
+    return ThreeLanesHeuristic(board)
     #return EdgeHeuristic(board)
 
 
