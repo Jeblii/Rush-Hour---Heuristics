@@ -66,9 +66,6 @@ horizontaltrucks = imagelist[12:16]
 verticalcars = imagelist[16:25]
 verticaltrucks = imagelist[25:]
 
-print (verticaltrucks)
-
-
 for vehicle in board.vehicles:
     if vehicle.orientation == 1:
         if vehicle.id < 12:
