@@ -1,6 +1,7 @@
 import pygame as pg
 import sys
 import numpy as np
+import time
 
 class Visualization(object):
     def __init__(self, steps):
@@ -53,12 +54,21 @@ class Visualization(object):
 
 
 colorcoding = []
+imagelist = []
 
-horizontaltrucks = []
-horizontalcars = []
-verticaltrucks = []
-verticalcars = []
-''''
+for number in range(0,16):
+    imagelist.append(pg.image.load('Blocks/' + "Car" + number + ".png"))
+for number in range(1,16):
+    imagelist.append(pg.image.load('Blocks/' + "Car-rotated" + number + ".png"))
+
+horizontalcars = imagelist[0:12]
+horizontaltrucks = imagelist[12:16]
+verticalcars = imagelist[16:25]
+verticaltrucks = imagelist[25:]
+
+print (verticaltrucks)
+
+
 for vehicle in board.vehicles:
     if vehicle.orientation == 1:
         if vehicle.id < 12:
@@ -78,11 +88,6 @@ for vehicle in board.vehicles:
             colorcoding.append(verticaltrucks[0])
             verticaltrucks.append(verticaltrucks[0])
             verticaltrucks.pop(0)
-        
-            
-
-
-
 
 for state in winning_route:
     clean board init
@@ -90,4 +95,5 @@ for state in winning_route:
         x = (dif_width * state.vehicles[vehicle].x) - 100
         y = (dif_heigth * state.vehicles[vehicle].y) + 25
         DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
-'''
+    pg.display.update
+    time.sleep(.5)
