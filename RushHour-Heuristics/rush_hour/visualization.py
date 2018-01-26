@@ -51,7 +51,6 @@ class Visualization(object):
                 pg.display.update()
 
 
-colorcoding, elke car een kleur geven en in een lijst stoppen
 
 colorcoding = []
 
@@ -59,9 +58,28 @@ horizontaltrucks = []
 horizontalcars = []
 verticaltrucks = []
 verticalcars = []
-
+''''
 for vehicle in board.vehicles:
     if vehicle.orientation == 1:
+        if vehicle.id < 12:
+            colorcoding.append(horizontalcars[0])
+            horizontalcars.append(horizontalcars[0])
+            horizontalcars.pop(0)
+        else:
+            colorcoding.append(horizontaltrucks[0])
+            horizontaltrucks.append(horizontaltrucks[0])
+            horizontaltrucks.pop(0)
+    else:
+        if vehicle.id < 12:
+            colorcoding.append(verticalcars[0])
+            verticalcars.append(verticalcars[0])
+            verticalcars.pop(0)
+        else:
+            colorcoding.append(verticaltrucks[0])
+            verticaltrucks.append(verticaltrucks[0])
+            verticaltrucks.pop(0)
+        
+            
 
 
 
@@ -72,3 +90,4 @@ for state in winning_route:
         x = (dif_width * state.vehicles[vehicle].x) - 100
         y = (dif_heigth * state.vehicles[vehicle].y) + 25
         DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
+'''
