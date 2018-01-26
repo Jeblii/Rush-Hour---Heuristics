@@ -49,3 +49,26 @@ class Visualization(object):
                     pg.quit()
                     sys.exit()
                 pg.display.update()
+
+
+colorcoding, elke car een kleur geven en in een lijst stoppen
+
+colorcoding = []
+
+horizontaltrucks = []
+horizontalcars = []
+verticaltrucks = []
+verticalcars = []
+
+for vehicle in board.vehicles:
+    if vehicle.orientation == 1:
+
+
+
+
+for state in winning_route:
+    clean board init
+    for vehicle in range(len(state.vehicles)):
+        x = (dif_width * state.vehicles[vehicle].x) - 100
+        y = (dif_heigth * state.vehicles[vehicle].y) + 25
+        DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
