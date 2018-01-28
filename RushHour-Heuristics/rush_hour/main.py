@@ -10,6 +10,14 @@ import time
 from time import sleep
 from datetime import datetime
 
+def run_algorithm(algorithm):
+    start_time = datetime.now()
+    result = algorithm(init_board) #calls on the breadthfirstsearch algorithm
+    stop_time = datetime.now()
+    elapsed_time = stop_time - start_time
+    print('Elapsed Time:', elapsed_time)
+    return result
+
 def create_board(txt, size):
     """
     This function puts the four attributes of each vehicle in an array and loads
@@ -26,7 +34,7 @@ def create_board(txt, size):
             vehicles.append(x)
     new_board = board(vehicles)
     return new_board
-mylist = load_text("74") #runs the setup file
+mylist = load_text("72") #runs the setup file
 size = len(mylist) #reads the number of lines of mylist
 init_board = create_board(mylist, size) #puts all the vehicles into a generated board
 
@@ -36,16 +44,5 @@ init_board = create_board(mylist, size) #puts all the vehicles into a generated 
 # print("")
 
 #use x algorithm to solve board
-
-# start_time = datetime.now()
-# result = breadthfirstsearch(init_board) #calls on the breadthfirstsearch algorithm
-# stop_time = datetime.now()
-# elapsed_time = stop_time - start_time
-# print('Elapsed Time:', elapsed_time)
-
-start_time = datetime.now()
-print (init_board.get_board())
-result = Astar(init_board) #calls on the breadthfirstsearch algorithm
-stop_time = datetime.now()
-elapsed_time = stop_time - start_time
-print('Elapsed Time:', elapsed_time)
+run_algorithm(breadthfirstsearch)
+run_algorithm(Astar)
