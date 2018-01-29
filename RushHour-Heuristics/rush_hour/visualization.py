@@ -82,13 +82,13 @@ class Visualization(object):
                                 DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
                             counter -=1
                             pg.display.update
-                if event.key == pygame.K_RIGHT:
-                    if counter < max:
-                        DISPLAYSURF.blit(board, (0, 0))
-                        state = solution_steps[counter]
-                        for vehicle in range(len(state.vehicles)):
-                            x = (dif_width * state.vehicles[vehicle].x) - 100
-                            y = (dif_heigth * state.vehicles[vehicle].y) + 25
-                            DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
-                        counter += 1
-                        pg.display.update
+                    if event.key == pygame.K_RIGHT:
+                        if counter < max:
+                            DISPLAYSURF.blit(board, (0, 0))
+                            state = solution_steps[counter]
+                            for vehicle in range(len(state.vehicles)):
+                                x = (dif_width * state.vehicles[vehicle].x) - 100
+                                y = (dif_heigth * state.vehicles[vehicle].y) + 25
+                                DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
+                            counter += 1
+                            pg.display.update
