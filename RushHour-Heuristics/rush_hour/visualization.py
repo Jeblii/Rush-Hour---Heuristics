@@ -35,9 +35,9 @@ def visualization(winning_state):
             imagelist.append(pg.image.load('Blocks/' + "Car-rotated" + str(number) + ".png"))
 
         horizontalcars = imagelist[0:12]
-        horizontaltrucks = imagelist[12:16]
-        verticalcars = imagelist[16:25]
-        verticaltrucks = imagelist[25:]
+        horizontaltrucks = imagelist[12:15]
+        verticalcars = imagelist[16:27]
+        verticaltrucks = imagelist[27:]
 
         for vehicle in winning_state.vehicles:
             if vehicle.orientation == 0:
@@ -88,7 +88,6 @@ def visualization(winning_state):
                                 DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
                             counter +=1
                             pg.display.update()
-                            print('left')
                     if event.key == pg.K_RIGHT:
                         if counter >= 0:
                             DISPLAYSURF.blit(board, (0, 0))
@@ -99,4 +98,3 @@ def visualization(winning_state):
                                 DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
                             counter -= 1
                             pg.display.update()
-                            print('right')

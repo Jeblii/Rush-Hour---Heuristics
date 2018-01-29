@@ -37,7 +37,7 @@ def visualization(winning_state):
         horizontalcars = imagelist[0:12]
         horizontaltrucks = imagelist[12:16]
         verticalcars = imagelist[16:25]
-        verticaltrucks = imagelist[25:]
+        verticaltrucks = imagelist[25:28]
 
         for vehicle in winning_state.vehicles:
             if vehicle.orientation == 1:
