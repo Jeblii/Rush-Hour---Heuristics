@@ -91,3 +91,57 @@ class Visualization(object):
                     pg.quit()
                     sys.exit()
                 pg.display.update()
+
+
+
+def visualize(self, winning_state):
+
+    solution_steps = [winning_state]
+    parent = winning_state.parent
+    while parent:
+        solution_steps.append(parent)
+        parent = parent.parent
+    solution_steps = reversed(solution_steps)
+
+    colorcoding = []
+    imagelist = []
+
+    for number in range(0,16):
+        imagelist.append(pg.image.load('Blocks/' + "Car" + str(number) + ".png"))
+    for number in range(1,16):
+        imagelist.append(pg.image.load('Blocks/' + "Car-rotated" + str(number) + ".png"))
+
+    horizontalcars = imagelist[0:12]
+    horizontaltrucks = imagelist[12:16]
+    verticalcars = imagelist[16:25]
+    verticaltrucks = imagelist[25:]
+
+    for vehicle in winning_state.vehicles:
+        if vehicle.orientation == 1:
+            if vehicle.id < 12:
+                colorcoding.append(horizontalcars[0])
+                horizontalcars.append(horizontalcars[0])
+                horizontalcars.pop(0)
+            else:
+                colorcoding.append(horizontaltrucks[0])
+                horizontaltrucks.append(horizontaltrucks[0])
+                horizontaltrucks.pop(0)
+        else:
+            if vehicle.id < 12:
+                colorcoding.append(verticalcars[0])
+                verticalcars.append(verticalcars[0])
+                verticalcars.pop(0)
+            else:
+                colorcoding.append(verticaltrucks[0])
+                verticaltrucks.append(verticaltrucks[0])
+                verticaltrucks.pop(0)
+
+    for state in solution_steps:
+        #clean board init
+        for vehicle in range(len(state.vehicles)):
+            x = (dif_width * state.vehicles[vehicle].x) - 100
+            y = (dif_heigth * state.vehicles[vehicle].y) + 25
+            DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
+        pg.display.update
+        time.sleep(.5)
+
