@@ -3,9 +3,7 @@ import sys
 import numpy as np
 import time
 
-class Visualization(object):
-    def __init__(self, winning_state):
-
+def visualization(winning_state):
         #initializes board
         pg.init()
         width = 600
@@ -27,7 +25,6 @@ class Visualization(object):
         while parent:
             solution_steps.append(parent)
             parent = parent.parent
-        solution_steps = reversed(solution_steps)
 
         colorcoding = []
         imagelist = []
@@ -71,18 +68,18 @@ class Visualization(object):
                     pg.quit()
                     sys.exit()
                     pg.display.update()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_LEFT:
+                if event.type == pg.KEYDOWN:
+                    if event.key == pg.K_LEFT:
                         if counter > 0:
                             DISPLAYSURF.blit(board, (0, 0))
-                            state = solution_steps[counter]
+                            state = reversed(solution_steps[counter])
                             for vehicle in range(len(state.vehicles)):
                                 x = (dif_width * state.vehicles[vehicle].x) - 100
                                 y = (dif_heigth * state.vehicles[vehicle].y) + 25
                                 DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
                             counter -=1
                             pg.display.update
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pg.K_RIGHT:
                         if counter < max:
                             DISPLAYSURF.blit(board, (0, 0))
                             state = solution_steps[counter]

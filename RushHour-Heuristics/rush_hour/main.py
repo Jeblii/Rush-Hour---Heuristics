@@ -6,7 +6,7 @@ from Algorithms.AStar import Astar
 from Algorithms.Heuristics import *
 from Algorithms.Random import randomsearch
 from setup import *
-from visualization import Visualization
+from visualization import visualization
 import time
 from time import sleep
 from datetime import datetime
@@ -43,11 +43,9 @@ init_board = create_board(mylist, size) #puts all the vehicles into a generated 
 # for i in range(len(init_board.get_board())):
 #     print(init_board.get_board()[i]) #prints all the states the algorithm vistis
 # print("")
-vis = Visualization()
-
 
 #use x algorithm to solve board
 winning_state = run_algorithm(breadthfirstsearch)
-visualize(winning_state)
+visualization(winning_state)
 #run_algorithm(Astar)
 #run_algorithm(randomsearch)
