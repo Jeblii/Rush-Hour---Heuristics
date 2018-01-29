@@ -59,8 +59,17 @@ def visualization(winning_state):
                     verticaltrucks.append(verticaltrucks[0])
                     verticaltrucks.pop(0)
 
-        counter = 0
-        max = (len(solution_steps))
+
+        max = (len(solution_steps))-1
+        counter = max
+
+        state = (solution_steps[counter])
+        for vehicle in range(len(state.vehicles)):
+            x = (dif_width * state.vehicles[vehicle].x) - 100
+            y = (dif_heigth * state.vehicles[vehicle].y) + 25
+            DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
+        counter -= 1
+        pg.display.update
 
         while True:
             for event in pg.event.get():
@@ -70,22 +79,24 @@ def visualization(winning_state):
                     pg.display.update()
                 if event.type == pg.KEYDOWN:
                     if event.key == pg.K_LEFT:
-                        if counter > 0:
+                        if counter < max:
                             DISPLAYSURF.blit(board, (0, 0))
-                            state = reversed(solution_steps[counter])
+                            state = (solution_steps[counter])
                             for vehicle in range(len(state.vehicles)):
                                 x = (dif_width * state.vehicles[vehicle].x) - 100
                                 y = (dif_heigth * state.vehicles[vehicle].y) + 25
                                 DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
-                            counter -=1
+                            counter +=1
                             pg.display.update
+                            print('left')
                     if event.key == pg.K_RIGHT:
-                        if counter < max:
+                        if counter > 0:
                             DISPLAYSURF.blit(board, (0, 0))
                             state = solution_steps[counter]
                             for vehicle in range(len(state.vehicles)):
                                 x = (dif_width * state.vehicles[vehicle].x) - 100
                                 y = (dif_heigth * state.vehicles[vehicle].y) + 25
                                 DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
-                            counter += 1
+                            counter -= 1
                             pg.display.update
+                            print('right')
