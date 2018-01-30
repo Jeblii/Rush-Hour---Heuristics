@@ -38,7 +38,7 @@ size = len(mylist)                          #reads the number of lines of mylist
 init_board = create_board(mylist, size)     #puts all the vehicles into a generated board
 
 algorithm = int(input("What Algorithm would you like to use: "
-                      "\nchoose 1 for Breadthfirst\nchoose 2 for Best First\nchoose 3 for Random\n"))
+                      "\nType Number 1 for Breadthfirst\nType Number 2 for Best First\nType Number 3 for Random\n"))
 if algorithm == 1:
     winning_state = run_algorithm(breadthfirstsearch)
     visualization(winning_state)
