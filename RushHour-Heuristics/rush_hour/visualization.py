@@ -78,16 +78,16 @@ def visualization(winning_state):
                     sys.exit()
                     pg.display.update()
                 if event.type == pg.KEYDOWN:
-                    if event.key == pg.K_LEFT:
-                        if counter < max:
-                            DISPLAYSURF.blit(board, (0, 0))
-                            state = (solution_steps[counter])
-                            for vehicle in range(len(state.vehicles)):
-                                x = (dif_width * state.vehicles[vehicle].x)
-                                y = (dif_heigth * state.vehicles[vehicle].y)
-                                DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
-                            counter +=1
-                            pg.display.update()
+                    # if event.key == pg.K_LEFT:
+                    #     if counter < max:
+                    #         DISPLAYSURF.blit(board, (0, 0))
+                    #         state = (solution_steps[counter])
+                    #         for vehicle in range(len(state.vehicles)):
+                    #             x = (dif_width * state.vehicles[vehicle].x)
+                    #             y = (dif_heigth * state.vehicles[vehicle].y)
+                    #             DISPLAYSURF.blit(colorcoding[vehicle], (x, y))
+                    #         counter +=1
+                    #         pg.display.update()
                     if event.key == pg.K_RIGHT:
                         if counter >= 0:
                             DISPLAYSURF.blit(board, (0, 0))

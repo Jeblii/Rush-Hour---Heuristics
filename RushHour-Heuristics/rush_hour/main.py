@@ -2,13 +2,10 @@ from vehicle import Vehicle
 from vehicle_2 import Vehicle_2
 from Boards import board
 from Algorithms.BreadthFirstSearch import breadthfirstsearch
-from Algorithms.AStar import Astar
-from Algorithms.Heuristics import *
+from Algorithms.BestFirst import BestFirst
 from Algorithms.Random import randomsearch
 from setup import *
 from visualization import visualization
-import time
-from time import sleep
 from datetime import datetime
 
 def run_algorithm(algorithm):
@@ -35,7 +32,7 @@ def create_board(txt, size):
             vehicles.append(x)
     new_board = board(vehicles)
     return new_board
-mylist = load_text("71") #runs the setup file
+mylist = load_text("69") #runs the setup file
 size = len(mylist) #reads the number of lines of mylist
 init_board = create_board(mylist, size) #puts all the vehicles into a generated board
 
@@ -46,6 +43,7 @@ init_board = create_board(mylist, size) #puts all the vehicles into a generated 
 
 #use x algorithm to solve board
 winning_state = run_algorithm(breadthfirstsearch)
+#winning_state =_algorithm(BestFirst)
+#winning_state =_algorithm(randomsearch)
+
 visualization(winning_state)
-#run_algorithm(Astar)
-#run_algorithm(randomsearch)
