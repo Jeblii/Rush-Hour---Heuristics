@@ -24,12 +24,4 @@ class Vehicle(object):
 
         self.x = x
         self.y = y
-
-        if orientation == 0:
-            self.orientation = orientation
-            x_end = self.x + (self.length - 1)
-            y_end = self.y
-        elif orientation == 1:
-            self.orientation = orientation
-            x_end = self.x
-            y_end = self.y + (self.length - 1)
+        self.orientation = orientation

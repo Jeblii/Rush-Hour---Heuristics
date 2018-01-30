@@ -16,7 +16,7 @@ def run_algorithm(algorithm):
     print('Elapsed Time:', elapsed_time)
     return result
 
-def create_board(txt, size):
+def create_board(mylist, size):
     """
     This function puts the four attributes of each vehicle in an array and loads
     them into the class board
@@ -32,18 +32,20 @@ def create_board(txt, size):
             vehicles.append(x)
     new_board = board(vehicles)
     return new_board
-mylist = load_text("69") #runs the setup file
-size = len(mylist) #reads the number of lines of mylist
-init_board = create_board(mylist, size) #puts all the vehicles into a generated board
 
-# print(file)
-# for i in range(len(init_board.get_board())):
-#     print(init_board.get_board()[i]) #prints all the states the algorithm vistis
-# print("")
+mylist = user_setup()
+size = len(mylist)                          #reads the number of lines of mylist
+init_board = create_board(mylist, size)     #puts all the vehicles into a generated board
 
-#use x algorithm to solve board
-winning_state = run_algorithm(breadthfirstsearch)
-#winning_state =_algorithm(BestFirst)
-#winning_state =_algorithm(randomsearch)
-
-visualization(winning_state)
+algorithm = int(input("What Algorithm would you like to use: "
+                      "\nchoose 1 for Breadthfirst\nchoose 2 for Best First\nchoose 3 for Random\n"))
+if algorithm == 1:
+    winning_state = run_algorithm(breadthfirstsearch)
+    visualization(winning_state)
+elif algorithm == 2:
+    winning_state = run_algorithm(BestFirst)
+    visualization(winning_state)
+elif algorithm == 3:
+    run_algorithm(randomsearch)
+else:
+    print("Invalid value, please try again")

@@ -6,14 +6,13 @@ def load_text(txtfile):
     textlines = []
     with open('boards/' + "jam_" + txtfile + ".txt") as file:
         for line in file.readlines():
-            line = line.strip('\n')
-            line = line.split('\t')
+            line = line.strip('\n').split('\t')
             textlines.append(line)
-    return textlines 
+    return textlines
 
 def user_setup():
     """
-    This function asks teh user whether they want to start up the game or quit.
+    This function asks the user whether they want to start up the game or quit.
     """
     game_start = input("Do you want to start the game (Y/N): ")
     if game_start == "Y":

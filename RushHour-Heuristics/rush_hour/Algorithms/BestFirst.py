@@ -1,4 +1,3 @@
-from copy import deepcopy
 import numpy as np
 from operator import attrgetter
 from random import shuffle
@@ -88,12 +87,12 @@ def ReverseHeuristic(board):
 def get_heuristic(board):
     "select a heuristic by uncommenting"
     #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
-    #return RightCarsHeuristic(board)+board.depth
+    return RightCarsHeuristic(board)
     #return DistanceHeuristic(board)
     #return BlockingHeuristic(board)
     #return ThreeLanesHeuristic(board)
     #return EdgeHeuristic(board)
-    return ReverseHeuristic(board)
+    #return ReverseHeuristic(board)
 
 
 def BestFirst(board, maxDepth=10000):
@@ -124,22 +123,17 @@ def BestFirst(board, maxDepth=10000):
             else:
                 visit[new_key.tostring()] = 1
                 new_generation.append((get_heuristic(child), child))
-                if child.vehicles[0].x == dimension - 2: #if solution is found
-
-                    visit[len(visit)+1] = child.get_board()                 #add last visited state to visit dictionary
-
+                if child.vehicles[0].x == dimension - 2:                #if solution is found
+                    visit[len(visit)+1] = child.get_board()             #add last visited state to visit dictionary
                     # for i in visit.keys():                            #prints all the visited states in breatdhfirst search
-                    #     print(i)                                        #<- uncomment this section if you want to seethe visited states in the breadthfirstsearch
-
+                    #     print(i)                                      #<- uncomment this section if you want to seethe visited states in the breadthfirstsearch
                     get_parents(child)
                     print("Total visited nodes:", len(visit))
-
-                    return
+                    return child
         for i in new_generation:
             priority_queue.append(i)
         priority_queue.pop(0)
         priority_queue = sorted(priority_queue, key=lambda x: x[0])
-    return visit
 
 
 def get_parents(winning_state):
