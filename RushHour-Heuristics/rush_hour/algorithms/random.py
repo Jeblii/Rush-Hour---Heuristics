@@ -12,7 +12,7 @@ def random_search(board):
             new_board = new_board.calculate_random_move(vehicle_amount, visit)
             if new_board.vehicles[0].x == limit:
                 getal = 2
-                print('Solution found: \n', new_board.get_board())
+                print(new_board.get_board())
                 break
             counter += 1
             print(counter)

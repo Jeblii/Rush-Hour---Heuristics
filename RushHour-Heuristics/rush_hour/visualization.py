@@ -2,7 +2,7 @@ import pygame as pg
 import sys
 
 
-def visualization(winning_state, visit, elapsed_time):
+def visualization(winning_state, visit, elapsed_time, algorithm):
         #initializes board
         pg.init()
         width = 600
@@ -63,12 +63,10 @@ def visualization(winning_state, visit, elapsed_time):
         maximum = (len(solution_steps))-1
         counter = maximum
 
-        num_moves = "Total Number of Moves: " + str(counter)
-        number_of_moves = myfont.render(num_moves, True, (0, 0, 0))
-        num_nodes = "Total Number of Nodes Visited: " + str(visit)
-        number_of_nodes = myfont.render(num_nodes, True, (0, 0, 0))
-        el_time = "Elapsed Time: " + str(elapsed_time)
-        elapsed_time = myfont.render(el_time, True, (0, 0, 0))
+        number_of_moves = myfont.render("Total Number of Moves: " + str(counter), True, (0, 0, 0))
+        number_of_nodes = myfont.render("Total Number of Nodes Visited: " + str(visit), True, (0, 0, 0))
+        elapsed_time = myfont.render("Elapsed Time: " + str(elapsed_time), True, (0, 0, 0))
+        algorithm_used = myfont.render("Algorithm Used: " + algorithm, True, (0, 0, 0))
 
 
         state = (solution_steps[counter])
@@ -108,7 +106,8 @@ def visualization(winning_state, visit, elapsed_time):
                             pg.display.update()
                         if counter <= -1:
                             DISPLAYSURF.blit(results, (200, 200))
-                            DISPLAYSURF.blit(number_of_moves, (210, 250))
-                            DISPLAYSURF.blit(number_of_nodes, (210, 300))
-                            DISPLAYSURF.blit(elapsed_time, (210, 350))
+                            DISPLAYSURF.blit(number_of_moves, (210, 260))
+                            DISPLAYSURF.blit(number_of_nodes, (210, 295))
+                            DISPLAYSURF.blit(elapsed_time, (210, 330))
+                            DISPLAYSURF.blit(algorithm_used, (210, 365))
                             pg.display.update()

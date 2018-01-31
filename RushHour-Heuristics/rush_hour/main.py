@@ -44,11 +44,11 @@ algorithm = int(input("What Algorithm would you like to use: "
 if algorithm == 1:
     result, elapsed_time = run_algorithm(breadth_first_search)
     if len(result[0].get_board()) == 6:
-        visualization(result[0], result[1], elapsed_time)
+        visualization(result[0], result[1], elapsed_time, 'Breadth First Search')
 elif algorithm == 2:
     result, elapsed_time = run_algorithm(best_first_search)
     if len(result[0].get_board()) == 6:
-        visualization(result[0], result[1], elapsed_time)
+        visualization(result[0], result[1], elapsed_time, 'Best First Search')
 elif algorithm == 3:
     run_algorithm(random_search)
 else:

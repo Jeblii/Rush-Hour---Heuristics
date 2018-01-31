@@ -83,6 +83,8 @@ def get_heuristic(heuristic, board):
         return EdgeHeuristic(board)
     elif heuristic == 5:
         return ReverseHeuristic(board)
+    else:
+        print("Invalid value, please try again")
 
 
 
