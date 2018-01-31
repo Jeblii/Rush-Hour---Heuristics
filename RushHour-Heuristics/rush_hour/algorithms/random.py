@@ -1,4 +1,4 @@
-def randomsearch(board):
+def random_search(board):
     getal = 1
     while getal == 1:
         new_board = board

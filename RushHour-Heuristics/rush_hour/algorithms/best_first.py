@@ -95,7 +95,7 @@ def get_heuristic(board):
     #return ReverseHeuristic(board)
 
 
-def BestFirst(board, maxDepth=10000):
+def best_first(board, maxDepth=10000):
     """
     An implementation of breadth first search; checks states on the order FIFO
     function terminates, when solution is found or max depth is reached

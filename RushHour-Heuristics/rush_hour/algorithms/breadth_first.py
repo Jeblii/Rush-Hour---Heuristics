@@ -1,7 +1,7 @@
 from operator import attrgetter
 
 
-def breadthfirstsearch(board, maxDepth=100):
+def breadth_first_search(board, maxDepth=100):
     """
     An implementation of breadth first search; checks states on the order FIFO
     function terminates, when solution is found or max depth is reached

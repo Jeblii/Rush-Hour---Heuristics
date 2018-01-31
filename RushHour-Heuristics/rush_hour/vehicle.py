@@ -1,4 +1,4 @@
-class Vehicle(object):
+class vehicle(object):
     """A configuration of a single vehicle.
         This class is designed to work with the 6x6 boards
     """

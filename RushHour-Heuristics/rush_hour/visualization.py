@@ -1,7 +1,5 @@
 import pygame as pg
 import sys
-import numpy as np
-import time
 
 def visualization(winning_state):
         #initializes board
@@ -15,7 +13,7 @@ def visualization(winning_state):
         dif_heigth = heigth/6
 
         #loads Background Image
-        board = pg.image.load('Blocks/RushHour.png')
+        board = pg.image.load('blocks/RushHour.png')
 
         #Initializes Background Image
         DISPLAYSURF.blit(board, (0,0))
@@ -30,9 +28,9 @@ def visualization(winning_state):
         imagelist = []
 
         for number in range(0, 16):
-            imagelist.append(pg.image.load('Blocks/' + "Car" + str(number) + ".png"))
+            imagelist.append(pg.image.load('blocks/' + "Car" + str(number) + ".png"))
         for number in range(1, 16):
-            imagelist.append(pg.image.load('Blocks/' + "Car-rotated" + str(number) + ".png"))
+            imagelist.append(pg.image.load('blocks/' + "Car-rotated" + str(number) + ".png"))
 
         horizontalcars = imagelist[0:12]
         horizontaltrucks = imagelist[12:15]

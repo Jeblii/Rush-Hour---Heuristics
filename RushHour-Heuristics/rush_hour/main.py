@@ -1,16 +1,16 @@
-from vehicle import Vehicle
-from vehicle_2 import Vehicle_2
-from Boards import board
-from Algorithms.BreadthFirstSearch import breadthfirstsearch
-from Algorithms.BestFirst import BestFirst
-from Algorithms.Random import randomsearch
+from vehicle import vehicle
+from vehicle_2 import vehicle_2
+from boards import board
+from algorithms.breadth_first import breadth_first_search
+from algorithms.best_irst import best_first_search
+from algorithms.random import random_search
 from setup import *
 from visualization import visualization
 from datetime import datetime
 
 def run_algorithm(algorithm):
     start_time = datetime.now()
-    result = algorithm(init_board) #calls on the breadthfirstsearch algorithm
+    result = algorithm(init_board)
     stop_time = datetime.now()
     elapsed_time = stop_time - start_time
     print('Elapsed Time:', elapsed_time)
@@ -24,10 +24,10 @@ def create_board(mylist, size):
     vehicles = []
     for count in range(len(mylist)):
         if size > 20: #with this number of cars, we can assume that we are dealing with a 9x9 or 12x12
-            x = Vehicle_2(int(mylist[count][0]), int(mylist[count][1]), int(mylist[count][2]), int(mylist[count][3]))
+            x = vehicle_2(int(mylist[count][0]), int(mylist[count][1]), int(mylist[count][2]), int(mylist[count][3]))
             vehicles.append(x)
         else:
-            x = Vehicle(int(mylist[count][0]), int(mylist[count][1]),
+            x = vehicle(int(mylist[count][0]), int(mylist[count][1]),
                         int(mylist[count][2]), int(mylist[count][3]))
             vehicles.append(x)
     new_board = board(vehicles)
@@ -38,16 +38,16 @@ size = len(mylist)                          #reads the number of lines of mylist
 init_board = create_board(mylist, size)     #puts all the vehicles into a generated board
 
 algorithm = int(input("What Algorithm would you like to use: "
-                      "\nType Number 1 for Breadthfirst\nType Number 2 for Best First\nType Number 3 for Random\n"))
+                      "\nType Number 1 for Breadth First\nType Number 2 for Best First\nType Number 3 for Random\n"))
 if algorithm == 1:
-    winning_state = run_algorithm(breadthfirstsearch)
+    winning_state = run_algorithm(breadth_first_search)
     if len(winning_state.get_board()) == 6:
         visualization(winning_state)
 elif algorithm == 2:
-    winning_state = run_algorithm(BestFirst)
+    winning_state = run_algorithm(best_first_search)
     if len(winning_state.get_board()) == 6:
         visualization(winning_state)
 elif algorithm == 3:
-    run_algorithm(randomsearch)
+    run_algorithm(random_search)
 else:
     print("Invalid value, please try again")
