@@ -59,7 +59,6 @@ def visualization(winning_state):
                     verticaltrucks.append(verticaltrucks[0])
                     verticaltrucks.pop(0)
 
-
         max = (len(solution_steps))-1
         counter = max
 
