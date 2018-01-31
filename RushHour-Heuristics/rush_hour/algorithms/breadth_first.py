@@ -36,7 +36,7 @@ def breadth_first_search(board, maxDepth=100):
                         # for i in visit.keys():                            #prints all the visited states in breatdhfirst search
                         #      print(i)                                     #<- uncomment this section if you want to seethe visited states in the breadthfirstsearch
                         print("Total visited nodes:", len(visit))
-                        return child
+                        return child, len(visit)
         queue = new_generation
 
 

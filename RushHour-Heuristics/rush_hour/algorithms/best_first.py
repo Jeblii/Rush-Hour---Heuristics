@@ -125,7 +125,7 @@ def best_first_search(board, maxDepth=10000):
                     #     print(i)                                      #<- uncomment this section if you want to seethe visited states in the breadthfirstsearch
                     get_parents(child)
                     print("Total visited nodes:", len(visit))
-                    return child
+                    return child, len(visit)
         for i in new_generation:
             priority_queue.append(i)
         priority_queue.pop(0)
