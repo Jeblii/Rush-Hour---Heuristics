@@ -28,19 +28,6 @@ def DistanceHeuristic(board):
     return distance
 
 
-def BlockingHeuristic(board):
-    "calculate number of vehicles blocking the red car"
-    grid = board.get_board()
-    for i in grid:
-        if '0.' in i:
-            while not i[0] == 0:
-                np.delete(i, 0)
-            set_i = set(i)
-            if '..' in set_i:
-                set_i.remove('..')
-            return len(set_i)-1
-
-
 def ThreeLanesHeuristic(board):
     "calculate number of vehicles in 3 lanes"
     grid = board.get_board()
@@ -86,13 +73,22 @@ def ReverseHeuristic(board):
 
 def get_heuristic(board):
     "select a heuristic by uncommenting"
+    heuristic = int(input("What Heuristic would you like to use with Best First Search: "
+                          "\nType Number 1 for Right Car Heuristic\nType Number 2 for Distance Heuristic"
+                          "\nType Number 3 for Three Lanes Heuristic\nType Number 4 for Edge Heuristic"
+                          "\nType Number 5 for Reverse Heuristic\n"))
     #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
-    return RightCarsHeuristic(board)
-    #return DistanceHeuristic(board)
-    #return BlockingHeuristic(board)
-    #return ThreeLanesHeuristic(board)
-    #return EdgeHeuristic(board)
-    #return ReverseHeuristic(board)
+    if heuristic == 1:
+        return RightCarsHeuristic(board)
+    elif heuristic == 2:
+        return DistanceHeuristic(board)
+    elif heuristic == 3:
+        return ThreeLanesHeuristic(board)
+    elif heuristic == 4:
+        return EdgeHeuristic(board)
+    elif heuristic == 5:
+        return ReverseHeuristic(board)
+
 
 
 def best_first_search(board, maxDepth=10000):
