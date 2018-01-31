@@ -41,10 +41,12 @@ algorithm = int(input("What Algorithm would you like to use: "
                       "\nType Number 1 for Breadthfirst\nType Number 2 for Best First\nType Number 3 for Random\n"))
 if algorithm == 1:
     winning_state = run_algorithm(breadthfirstsearch)
-    visualization(winning_state)
+    if len(winning_state.get_board()) == 6:
+        visualization(winning_state)
 elif algorithm == 2:
     winning_state = run_algorithm(BestFirst)
-    visualization(winning_state)
+    if len(winning_state.get_board()) == 6:
+        visualization(winning_state)
 elif algorithm == 3:
     run_algorithm(randomsearch)
 else:
