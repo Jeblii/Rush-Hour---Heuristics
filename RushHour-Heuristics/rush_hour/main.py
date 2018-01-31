@@ -2,7 +2,7 @@ from vehicle import vehicle
 from vehicle_2 import vehicle_2
 from boards import board
 from algorithms.breadth_first import breadth_first_search
-from algorithms.best_irst import best_first_search
+from algorithms.best_first import best_first_search
 from algorithms.random import random_search
 from setup import *
 from visualization import visualization
