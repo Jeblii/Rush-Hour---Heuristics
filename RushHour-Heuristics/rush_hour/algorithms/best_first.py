@@ -71,12 +71,7 @@ def ReverseHeuristic(board):
         return RightCarsHeuristic(board)
 
 
-def get_heuristic(board):
-    "select a heuristic by uncommenting"
-    heuristic = int(input("What Heuristic would you like to use with Best First Search: "
-                          "\nType Number 1 for Right Car Heuristic\nType Number 2 for Distance Heuristic"
-                          "\nType Number 3 for Three Lanes Heuristic\nType Number 4 for Edge Heuristic"
-                          "\nType Number 5 for Reverse Heuristic\n"))
+def get_heuristic(heuristic, board):
     #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
     if heuristic == 1:
         return RightCarsHeuristic(board)
@@ -101,7 +96,10 @@ def best_first_search(board, maxDepth=10000):
     """
     priority_queue = []
     priority_queue.append((0, board))
-
+    heuristic = int(input("What Heuristic would you like to use with Best First Search: "
+                          "\nType Number 1 for Right Car Heuristic\nType Number 2 for Distance Heuristic"
+                          "\nType Number 3 for Three Lanes Heuristic\nType Number 4 for Edge Heuristic"
+                          "\nType Number 5 for Reverse Heuristic\n"))
     visit = dict()
     key = board.get_board()
     visit[key.tostring()]= 1
@@ -118,7 +116,7 @@ def best_first_search(board, maxDepth=10000):
                 continue
             else:
                 visit[new_key.tostring()] = 1
-                new_generation.append((get_heuristic(child), child))
+                new_generation.append((get_heuristic(heuristic, child), child))
                 if child.vehicles[0].x == dimension - 2:                #if solution is found
                     visit[len(visit)+1] = child.get_board()             #add last visited state to visit dictionary
                     # for i in visit.keys():                            #prints all the visited states in breatdhfirst search
