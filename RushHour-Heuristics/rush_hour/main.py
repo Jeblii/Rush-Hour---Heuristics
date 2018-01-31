@@ -14,7 +14,7 @@ def run_algorithm(algorithm):
     stop_time = datetime.now()
     elapsed_time = stop_time - start_time
     print('Elapsed Time:', elapsed_time)
-    return result
+    return result, elapsed_time
 
 def create_board(mylist, size):
     """
@@ -39,14 +39,16 @@ init_board = create_board(mylist, size)     #puts all the vehicles into a genera
 
 algorithm = int(input("What Algorithm would you like to use: "
                       "\nType Number 1 for Breadth First\nType Number 2 for Best First\nType Number 3 for Random\n"))
+
+
 if algorithm == 1:
-    winning_state = run_algorithm(breadth_first_search)
-    if len(winning_state.get_board()) == 6:
-        visualization(winning_state)
+    result, elapsed_time = run_algorithm(breadth_first_search)
+    if len(result[0].get_board()) == 6:
+        visualization(result[0], result[1], elapsed_time)
 elif algorithm == 2:
-    winning_state = run_algorithm(best_first_search)
-    if len(winning_state.get_board()) == 6:
-        visualization(winning_state)
+    result, elapsed_time = run_algorithm(best_first_search)
+    if len(result[0].get_board()) == 6:
+        visualization(result[0], result[1], elapsed_time)
 elif algorithm == 3:
     run_algorithm(random_search)
 else:
