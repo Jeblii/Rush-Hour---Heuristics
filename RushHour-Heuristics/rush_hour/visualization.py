@@ -105,7 +105,7 @@ def visualization(winning_state, visit, elapsed_time, algorithm):
                             counter -= 1
                             pg.display.update()
                         if counter <= -1:
-                            DISPLAYSURF.blit(results, (200, 200))
+                            DISPLAYSURF.blit(results, (170, 200))
                             DISPLAYSURF.blit(number_of_moves, (210, 260))
                             DISPLAYSURF.blit(number_of_nodes, (210, 295))
                             DISPLAYSURF.blit(elapsed_time, (210, 330))

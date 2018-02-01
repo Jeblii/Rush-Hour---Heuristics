@@ -1,8 +1,6 @@
 import numpy as np
 from copy import deepcopy
-from vehicle import vehicle
 from operator import attrgetter
-import random
 from random import *
 
 class board(object):
