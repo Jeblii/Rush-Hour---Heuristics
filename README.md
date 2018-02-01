@@ -1,3 +1,3 @@
 # Rush-Hour---Heuristics
 
-Open the Rush-Hour-Heuristics folder
+Open the RushHour-Heuristics folder
