@@ -1,9 +1,8 @@
-import numpy as np
 from operator import attrgetter
 from random import shuffle
 
 
-def RightCarsHeuristic(board):
+def right_cars_heuristic(board):
     "calculate number of vehicles right of the red car"
     blocking_cars = 0
     for v in board.vehicles:
@@ -12,7 +11,7 @@ def RightCarsHeuristic(board):
     return blocking_cars
 
 
-def LeftCarsHeuristic(board):
+def left_cars_heuristic(board):
     "calculate number of vehicles left of the red car, used in ReverseHeuristic"
     blocking_cars = 0
     for v in board.vehicles:
@@ -21,14 +20,14 @@ def LeftCarsHeuristic(board):
     return blocking_cars
 
 
-def DistanceHeuristic(board):
+def distance_heuristic(board):
     "calculates distance from red car to exit"
     grid = board.get_board()
     distance = len(grid) - board.vehicles[0].x - 1
     return distance
 
 
-def ThreeLanesHeuristic(board):
+def three_lanes_heuristic(board):
     "calculate number of vehicles in 3 lanes"
     grid = board.get_board()
     for i in range(len(grid)):
@@ -44,7 +43,7 @@ def ThreeLanesHeuristic(board):
             return len(merged_set) - 1
 
 
-def EdgeHeuristic(board):
+def edge_heuristic(board):
     "calculates the amount of cars on the edges of the grid except the right one"
     grid = board.get_board()
     merged_list = []
@@ -58,46 +57,43 @@ def EdgeHeuristic(board):
     return len(set(merged_list))+counter
 
 
-def ReverseHeuristic(board):
+def reverse_heuristic(board):
     "randomly prioritizes the LeftCarsHeuristic instead of the RightCarsHeuristic in certain cases"
     grid = board.get_board()
     if board.vehicles[0].x + 1 > len(grid)/2:
-        val1 = RightCarsHeuristic(board)
-        val2 = LeftCarsHeuristic(board)
+        val1 = right_cars_heuristic(board)
+        val2 = left_cars_heuristic(board)
         val_list = [val1, val1, val2]
         shuffle(val_list)
         return val_list[0]
     else:
-        return RightCarsHeuristic(board)
+        return right_cars_heuristic(board)
 
 
 def get_heuristic(heuristic, board):
-    #return RightCarsHeuristic(board)*4 + DistanceHeuristic(board) + (board.depth /10)
+    #return right_cars_heuristic(board)*4 + distance_heuristic(board) + (board.depth /10)
     if heuristic == 1:
-        return RightCarsHeuristic(board)
+        return right_cars_heuristic(board)
     elif heuristic == 2:
-        return DistanceHeuristic(board)
+        return distance_heuristic(board)
     elif heuristic == 3:
-        return ThreeLanesHeuristic(board)
+        return three_lanes_heuristic(board)
     elif heuristic == 4:
-        return EdgeHeuristic(board)
+        return edge_heuristic(board)
     elif heuristic == 5:
-        return ReverseHeuristic(board)
+        return right_cars_heuristic(board)
     else:
         print("Invalid value, please try again")
 
 
-
-def best_first_search(board, maxDepth=10000):
+def best_first_search(board):
     """
     An implementation of breadth first search; checks states on the order FIFO
     function terminates, when solution is found or max depth is reached
-    :param board: call function with a boardstate
-    :param maxDepth: max depth of tfhe tree till search terminates
+    :param board: call function with a board state
     :return:
     """
-    priority_queue = []
-    priority_queue.append((0, board))
+    priority_queue = [(0, board)]
     heuristic = int(input("What Heuristic would you like to use with Best First Search: "
                           "\nType Number 1 for Right Car Heuristic\nType Number 2 for Distance Heuristic"
                           "\nType Number 3 for Three Lanes Heuristic\nType Number 4 for Edge Heuristic"
@@ -121,26 +117,13 @@ def best_first_search(board, maxDepth=10000):
                 new_generation.append((get_heuristic(heuristic, child), child))
                 if child.vehicles[0].x == dimension - 2:                #if solution is found
                     visit[len(visit)+1] = child.get_board()             #add last visited state to visit dictionary
-                    # for i in visit.keys():                            #prints all the visited states in breatdhfirst search
-                    #     print(i)                                      #<- uncomment this section if you want to seethe visited states in the breadthfirstsearch
-                    get_parents(child)
+                    # for i in visit.keys():                            #prints all the visited states
+                    #     print(i)                                      #<- uncomment this section for  visited states
+                    if dimension > 6:
+                        child.display_route()
                     print("Total visited nodes:", len(visit))
                     return child, len(visit)
         for i in new_generation:
             priority_queue.append(i)
         priority_queue.pop(0)
         priority_queue = sorted(priority_queue, key=lambda x: x[0])
-
-
-def get_parents(winning_state):
-    solution_steps = []
-    parent = winning_state.parent
-    while parent:
-        solution_steps.append(parent.get_board())
-        parent = parent.parent
-
-    print("Solution route")
-    for i in reversed(solution_steps):
-        print(i, "\n")
-    print(winning_state.get_board())
-    print("Total moves:", len(solution_steps))

@@ -3,12 +3,12 @@ from copy import deepcopy
 from operator import attrgetter
 from random import *
 
-class board(object):
+
+class Board(object):
     def __init__(self, vehicles):
         self.vehicles = vehicles
         self.parent = None
         self.depth = 0
-
 
     def get_board(self):
         """
@@ -32,7 +32,6 @@ class board(object):
                     if vehicle.length == 2:
                         board[y + i][x] += "."
         return board
-
 
     def calculate_next_move(self, visit):
         """
@@ -140,4 +139,17 @@ class board(object):
                                 self.vehicles[vehicle_id].y -= 1
                             else:
                                 return self
+
+    def display_route(self):
+        solution_steps = []
+        parent = self.parent
+        while parent:
+            solution_steps.append(parent.get_board())
+            parent = parent.parent
+
+        print("Solution route")
+        for i in reversed(solution_steps):
+            print(i, "\n")
+        print(self.get_board())
+        print("Total moves:", len(solution_steps))
 

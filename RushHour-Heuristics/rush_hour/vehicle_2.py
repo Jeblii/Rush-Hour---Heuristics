@@ -1,4 +1,4 @@
-class vehicle_2(object):
+class Vehicle_2(object):
     """A configuration of a single vehicle
         This class is specifically designed to work with the 9x9 and 12X12 boards
     ."""

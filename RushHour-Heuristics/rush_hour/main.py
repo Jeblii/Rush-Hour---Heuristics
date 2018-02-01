@@ -1,12 +1,13 @@
-from vehicle import vehicle
-from vehicle_2 import vehicle_2
-from boards import board
+from vehicle import Vehicle
+from vehicle_2 import Vehicle_2
+from boards import Board
 from algorithms.breadth_first import breadth_first_search
 from algorithms.best_first import best_first_search
 from algorithms.random import random_search
 from setup import *
 from visualization import visualization
 from datetime import datetime
+
 
 def run_algorithm(algorithm):
     start_time = datetime.now()
@@ -16,26 +17,29 @@ def run_algorithm(algorithm):
     print('Elapsed Time:', elapsed_time)
     return result, elapsed_time
 
-def create_board(mylist, size):
+
+def create_board(grid, size):
     """
     This function puts the four attributes of each vehicle in an array and loads
     them into the class board
     """
     vehicles = []
-    for count in range(len(mylist)):
+    for count in range(len(grid)):
         if size > 20: #with this number of cars, we can assume that we are dealing with a 9x9 or 12x12
-            x = vehicle_2(int(mylist[count][0]), int(mylist[count][1]), int(mylist[count][2]), int(mylist[count][3]))
+            x = Vehicle_2(int(grid[count][0]), int(grid[count][1]),
+                          int(grid[count][2]), int(grid[count][3]))
             vehicles.append(x)
         else:
-            x = vehicle(int(mylist[count][0]), int(mylist[count][1]),
-                        int(mylist[count][2]), int(mylist[count][3]))
+            x = Vehicle(int(grid[count][0]), int(grid[count][1]),
+                        int(grid[count][2]), int(grid[count][3]))
             vehicles.append(x)
-    new_board = board(vehicles)
+    new_board = Board(vehicles)
     return new_board
 
-mylist = user_setup()
-size = len(mylist)                          #reads the number of lines of mylist
-init_board = create_board(mylist, size)     #puts all the vehicles into a generated board
+
+grid = user_setup()
+size = len(grid)                          #reads the number of lines of mylist
+init_board = create_board(grid, size)     #puts all the vehicles into a generated board
 
 algorithm = int(input("What Algorithm would you like to use: "
                       "\nType Number 1 for Breadth First\nType Number 2 for Best First\nType Number 3 for Random\n"))
